@@ -16,6 +16,12 @@ export function CustomCursor() {
   const springY = useSpring(cursorY, springConfig)
 
   useEffect(() => {
+    // Hide cursor on touch devices
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+      setIsVisible(false);
+      return;
+    }
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX)
       cursorY.set(e.clientY)

@@ -13,7 +13,7 @@ export default function Banner() {
   if (!mounted) {
     // Render a placeholder that matches the server layout exactly
     return (
-      <div className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center px-12 overflow-hidden">
+      <div className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center overflow-hidden">
         <div className="flex w-full">
           <div className="text-[10px] uppercase font-bold tracking-[0.5em] text-white flex shrink-0 space-x-12">
             <span>This is a Speculative Demo Website by Purple Cove Labs</span>
@@ -27,7 +27,7 @@ export default function Banner() {
     <motion.div 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center px-12 overflow-hidden"
+      className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center overflow-hidden"
       suppressHydrationWarning
     >
       <div className="flex w-full">

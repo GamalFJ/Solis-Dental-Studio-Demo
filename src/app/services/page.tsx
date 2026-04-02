@@ -89,9 +89,9 @@ export default function Services() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className={`${service.colSpan} glass-obsidian p-8 md:p-10 lg:p-20 rounded-[40px] md:rounded-[64px] hover:border-emerald/40 group transition-all duration-700 cursor-pointer overflow-hidden relative border border-white/5 hover:translate-y-[-12px] shadow-2xl`}
+              className={`${service.colSpan} glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] hover:border-emerald/40 group transition-all duration-700 cursor-pointer overflow-hidden relative border border-white/5 hover:translate-y-[-12px] shadow-2xl`}
             >
-              <div className="absolute top-6 right-6 lg:top-10 lg:right-10 text-[4rem] md:text-[6rem] lg:text-[8rem] font-syne font-black text-emerald/5 group-hover:text-gold/10 transition-colors duration-1000">
+              <div className="absolute top-6 right-6 lg:top-10 lg:right-10 text-[4rem] md:text-[6rem] lg:text-[7.5rem] font-syne font-black text-emerald/5 group-hover:text-gold/10 transition-colors duration-1000">
                 {service.id}
               </div>
               <div className="space-y-8 lg:space-y-10 relative z-10">
@@ -117,7 +117,7 @@ export default function Services() {
            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 md:mb-24 space-y-8 lg:space-y-0">
               <div className="text-center lg:text-left">
                  <span className="text-emerald font-bold tracking-[0.4em] uppercase text-xs">Transparency & Value</span>
-                 <h2 className="font-syne text-5xl md:text-7xl lg:text-9xl font-bold mt-4 tracking-tighter italic text-gold leading-none">Clinical <br/><span className="text-white not-italic lowercase text-luxury">investment.</span></h2>
+                 <h2 className="font-syne text-5xl md:text-7xl lg:text-8xl font-bold mt-4 tracking-tighter italic text-gold leading-none">Clinical <br/><span className="text-white not-italic lowercase text-luxury">investment.</span></h2>
               </div>
               <div className="glass-obsidian px-8 py-4 lg:px-10 lg:py-5 rounded-full border border-gold/20 backdrop-blur-xl group hover:border-gold transition-colors">
                  <p className="text-[10px] font-bold tracking-[0.3em] text-gray-500 group-hover:text-gold transition-colors italic uppercase">Dynamic Rate Mapping Active</p>

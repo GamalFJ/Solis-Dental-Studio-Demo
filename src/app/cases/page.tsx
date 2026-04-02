@@ -69,10 +69,12 @@ function CinematicRevealCard({ image, title }: { image: string; title: string })
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full cursor-ew-resize overflow-hidden rounded-[inherit]"
+      className="relative w-full h-full cursor-ew-resize overflow-hidden rounded-[inherit] touch-pan-y"
       onMouseMove={(e) => handleMove(e.clientX)}
+      onTouchStart={(e) => handleMove(e.touches[0].clientX)}
       onTouchMove={(e) => handleMove(e.touches[0].clientX)}
       onMouseLeave={() => setHoverPct(50)}
+      onTouchEnd={() => setHoverPct(50)}
     >
       {/* Full colour layer */}
       <Image src={image} alt={title} fill className="object-cover" />

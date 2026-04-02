@@ -80,7 +80,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="text-7xl md:text-9xl lg:text-[12rem] font-syne font-black text-emerald/10 leading-none tracking-tighter select-none"
+                className="text-7xl md:text-9xl lg:text-[10rem] font-syne font-black text-emerald/10 leading-none tracking-tighter select-none"
              >
                 {steps[activeStep].year}
              </motion.div>

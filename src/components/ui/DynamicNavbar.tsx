@@ -109,7 +109,7 @@ export function DynamicNavbar() {
             initial={{ opacity: 0, y: -40, scale: 0.9, rotateX: -20 }}
             animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
             exit={{ opacity: 0, y: -40, scale: 0.9, rotateX: -20 }}
-            className="md:hidden glass-obsidian mt-6 rounded-[48px] p-12 flex flex-col space-y-10 border border-white/5 shadow-3xl backdrop-blur-3xl overflow-hidden relative"
+            className="md:hidden glass-obsidian mt-6 rounded-[48px] p-8 md:p-12 flex flex-col space-y-8 md:space-y-10 border border-white/5 shadow-3xl backdrop-blur-3xl overflow-y-auto max-h-[80vh] relative"
           >
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent" />
             <div className="flex justify-between items-center mb-4">
