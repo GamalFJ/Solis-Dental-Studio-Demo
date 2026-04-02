@@ -1,7 +1,7 @@
 # Launch Readiness — Solis Dental Studio (Modern Build)
 
 **Project:** Solis Dental Studio — Speculative Demo by Purple Cove Labs  
-**Stack:** Next.js 16.2.2 · React 18 · Tailwind CSS 3 · Framer Motion · Three.js  
+**Stack:** Next.js 16.2.2 · React 19 · Tailwind CSS 3 · Framer Motion · Three.js  
 **Date:** 2026-04-02  
 **Assessed by:** Oryn AI (AgentsOrchestrator Pipeline)
 
@@ -61,6 +61,7 @@
 | 37 | Security headers | ✅ READY |
 | 38 | Asset caching | ✅ READY |
 | 39 | No env vars needed | ✅ READY |
+| 40 | Build command robustness | ✅ FIXED | Added `--legacy-peer-deps` to handle old libs |
 
 ## Known Limitations
 
