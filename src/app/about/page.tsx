@@ -9,6 +9,14 @@ export default function About() {
   const [activeStep, setActiveStep] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [dragStartX, setDragStartX] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const steps = [
     { year: "2021", title: "The Inception", detail: "Defined the 3D-first clinical protocol in Piantini.", icon: <ShieldCheck size={40} className="text-gold" /> },
@@ -49,7 +57,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-          <span className="text-gold font-bold tracking-[0.6em] uppercase text-[10px] lg:text-xs">The Obsidian Sanctuary</span>
+          <span className="text-gold font-bold tracking-[0.2em] md:tracking-[0.6em] uppercase text-[10px] lg:text-xs">The Obsidian Sanctuary</span>
           <h1 className="font-syne text-hero-lg font-bold mt-8 tracking-tighter">
             Our <br/><span className="text-luxury text-emerald lowercase">legacy.</span>
           </h1>
@@ -97,8 +105,8 @@ export default function About() {
         >
           <div 
             ref={trackRef}
-            className="flex items-center px-6 md:px-12 lg:px-20 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ transform: `translateX(-${activeStep * (typeof window !== 'undefined' && window.innerWidth < 1024 ? 90 : 40)}vw)` }}
+            className="flex items-center px-6 md:px-12 lg:px-20 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pb-12 md:pb-20"
+            style={{ transform: `translateX(-${activeStep * (isMobile ? 90 : 40)}vw)` }}
           >
             {steps.map((step, idx) => (
               <div 
@@ -168,7 +176,7 @@ export default function About() {
                 style={{ width: `${progress}%` }}
               />
            </div>
-           <div className="flex justify-between mt-6 lg:mt-10 text-[8px] lg:text-xs uppercase font-black tracking-[0.4em] lg:tracking-[0.6em] text-gray-700 transition-colors group-hover:text-gold">
+           <div className="flex justify-between mt-6 lg:mt-10 text-[8px] lg:text-xs uppercase font-black tracking-[0.25em] lg:tracking-[0.6em] text-gray-700 transition-colors group-hover:text-gold">
               <span>The Inception</span>
               <span>The Horizon</span>
            </div>

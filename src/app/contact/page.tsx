@@ -15,7 +15,7 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-          <span className="text-emerald font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs">Direct Digital Inquiry</span>
+          <span className="text-emerald font-bold tracking-[0.2em] md:tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs">Direct Digital Inquiry</span>
           <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter italic">
             Connect <br/><span className="text-gold not-italic">Elite.</span>
           </h1>
@@ -29,7 +29,7 @@ export default function Contact() {
                   <MapPin size={28} />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="syne font-black uppercase tracking-[0.4em] lg:tracking-[0.6em] text-emerald text-[8px] lg:text-[10px] opacity-60">Headquarters</h3>
+                  <h3 className="syne font-black uppercase tracking-[0.3em] lg:tracking-[0.6em] text-emerald text-[8px] lg:text-[10px] opacity-60">Headquarters</h3>
                   <p className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight">Piantini, Santo Domingo</p>
                 </div>
              </div>
@@ -38,7 +38,7 @@ export default function Contact() {
                   <Mail size={28} />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="syne font-black uppercase tracking-[0.4em] lg:tracking-[0.6em] text-emerald text-[8px] lg:text-[10px] opacity-60">Digital Inquiry</h3>
+                  <h3 className="syne font-black uppercase tracking-[0.3em] lg:tracking-[0.6em] text-emerald text-[8px] lg:text-[10px] opacity-60">Digital Inquiry</h3>
                   <p className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight">concierge@solis.studio</p>
                 </div>
              </div>

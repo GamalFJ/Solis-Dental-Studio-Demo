@@ -73,7 +73,7 @@ export default function Services() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-        <span className="text-gold font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs text-center lg:text-left block mb-8">The Technical Horizon</span>
+        <span className="text-gold font-bold tracking-[0.2em] md:tracking-[0.5em] uppercase text-[10px] lg:text-xs text-center lg:text-left block mb-8">The Technical Horizon</span>
         <h1 className="font-syne text-hero font-bold mt-6 text-center lg:text-left">
           Clinical <br/><span className="text-luxury text-emerald lowercase">intelligence.</span>
         </h1>

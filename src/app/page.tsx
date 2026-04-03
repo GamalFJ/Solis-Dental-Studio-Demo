@@ -39,7 +39,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-            <span className="text-emerald font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs drop-shadow-[0_0_10px_rgba(46,139,87,0.5)]">{t('hero_eyebrow')}</span>
+            <span className="text-emerald font-bold tracking-[0.2em] md:tracking-[0.5em] uppercase text-[10px] lg:text-xs drop-shadow-[0_0_10px_rgba(46,139,87,0.5)]">{t('hero_eyebrow')}</span>
             <h1 className="font-syne text-hero font-bold mt-8 tracking-tighter">
               Dental <br className="hidden lg:block" /><span className="text-luxury text-gold italic">{t('hero_title')}</span>
             </h1>
