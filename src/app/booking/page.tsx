@@ -16,12 +16,12 @@ export default function Booking() {
       {/* Background Precision Grid */}
       <ThreePrecisionGrid />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="container-premium grid lg:grid-cols-5 gap-16 md:gap-24 items-start relative z-10"
-      >
+      <div className="container-premium grid lg:grid-cols-5 gap-16 md:gap-24 items-start relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        >
         <div className="lg:col-span-2 lg:sticky lg:top-56 lg:h-min text-center lg:text-left">
           <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60 italic font-syne">The Digital Portal</span>
           <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter shadow-2xl">
@@ -74,7 +74,8 @@ export default function Booking() {
             <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.03] bg-[url('/assets/noise.png')]" />
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   )
 }

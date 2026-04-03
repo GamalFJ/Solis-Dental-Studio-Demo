@@ -67,12 +67,12 @@ export default function Services() {
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-gold/5 rounded-full blur-[100px]"></div>
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald/5 rounded-full blur-[100px]"></div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="container-premium z-10 relative"
-      >
+      <div className="container-premium z-10 relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
         <span className="text-gold font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs text-center lg:text-left block mb-8">The Technical Horizon</span>
         <h1 className="font-syne text-hero font-bold mt-6 text-center lg:text-left">
           Clinical <br/><span className="text-luxury text-emerald lowercase">intelligence.</span>
@@ -84,19 +84,19 @@ export default function Services() {
         {/* Bento Grid Services */}
         <div className="mt-24 md:mt-32 lg:mt-48 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {serviceItems.map((service, idx) => (
-            <motion.div 
-              key={service.id} 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className={`${service.colSpan} glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] hover:border-emerald/40 group transition-all duration-700 cursor-pointer overflow-hidden relative border border-white/5 hover:translate-y-[-12px] shadow-2xl`}
-            >
+            <div className={`${service.colSpan} glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] hover:border-emerald/40 group transition-all duration-700 cursor-pointer overflow-hidden relative border border-white/5 hover:translate-y-[-12px] shadow-2xl`}>
+              <motion.div 
+                key={service.id} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
               <div className="absolute top-6 right-6 lg:top-10 lg:right-10 text-[4rem] md:text-[6rem] lg:text-[7.5rem] font-syne font-black text-emerald/5 group-hover:text-gold/10 transition-colors duration-1000">
                 {service.id}
               </div>
               <div className="space-y-8 lg:space-y-10 relative z-10">
                 <div className="p-4 lg:p-5 w-fit rounded-2xl md:rounded-3xl bg-obsidian-light border border-gold/10 group-hover:border-gold/30 transition-all duration-500 group-hover:scale-110">
-                  {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
+                  {React.cloneElement(service.icon as React.ReactElement<any>, { size: 32 })}
                 </div>
                 <div className="space-y-4 lg:space-y-6">
                   <h4 className="text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight leading-none">{service.title}</h4>
@@ -106,9 +106,12 @@ export default function Services() {
                 </div>
               </div>
               <div className="mt-12 lg:mt-16 w-full h-[2px] bg-white/5 relative overflow-hidden">
-                <motion.div className="absolute h-full inset-0 bg-gradient-to-r from-emerald to-gold -translate-x-full group-hover:translate-x-0 transition-transform duration-1000" />
+                <div className="absolute h-full inset-0 bg-gradient-to-r from-emerald to-gold -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                  <motion.div className="w-full h-full" />
+                </div>
               </div>
-            </motion.div>
+                </motion.div>
+              </div>
           ))}
         </div>
 
@@ -137,13 +140,13 @@ export default function Services() {
                   </thead>
                   <tbody className="divide-y divide-white/5">
                       {pricingItems.map((item, idx) => (
-                        <motion.tr 
-                          key={item.name}
-                          initial={{ opacity: 0, x: -30 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                          className="group/row hover:bg-white/[0.03] transition-all duration-500 cursor-pointer"
-                        >
+                          <motion.tr 
+                            key={item.name}
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="group/row hover:bg-white/[0.03] transition-all duration-500 cursor-pointer"
+                          >
                             <td className="px-8 md:px-12 lg:px-20 py-10 md:py-16 lg:py-20 border-r border-white/5 group-hover/row:border-emerald/20 transition-colors">
                               <div className="text-xl md:text-2xl lg:text-4xl font-bold group-hover/row:text-emerald transition-all duration-500 font-syne">{item.name}</div>
                             </td>
@@ -166,12 +169,12 @@ export default function Services() {
             <div className="absolute inset-0 bg-gradient-to-b from-emerald/10 to-gold/10 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-[3s]" />
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/abstract.png')] bg-cover opacity-[0.05] grayscale group-hover/cta:scale-110 transition-transform duration-[10s]" />
             
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 max-w-5xl mx-auto space-y-12 lg:space-y-16"
-            >
+            <div className="relative z-10 max-w-5xl mx-auto space-y-12 lg:space-y-16">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              >
                <CircleDollarSign className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 text-gold mx-auto animate-float drop-shadow-[0_20px_40px_rgba(212,175,55,0.4)]" />
                <h2 className="font-syne text-4xl md:text-6xl lg:text-[7rem] font-bold tracking-tighter leading-[0.85]">
                   Begin Your <br/><span className="text-luxury text-emerald lowercase">biological evolution.</span>
@@ -189,9 +192,11 @@ export default function Services() {
                      <div className="w-10 md:w-12 h-px bg-gold group-hover/concierge:w-16 md:group-hover/concierge:w-20 group-hover/concierge:bg-white transition-all duration-700" />
                   </Link>
                </div>
-            </motion.div>
+              </motion.div>
+            </div>
         </section>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }

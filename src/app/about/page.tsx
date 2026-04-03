@@ -43,12 +43,12 @@ export default function About() {
       {/* Cinematic Intro */}
       <section className="min-h-[50vh] flex items-center relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-emerald/5 rounded-full blur-[200px]" />
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="container-premium relative z-10"
-        >
+        <div className="container-premium relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
           <span className="text-gold font-bold tracking-[0.6em] uppercase text-[10px] lg:text-xs">The Obsidian Sanctuary</span>
           <h1 className="font-syne text-hero-lg font-bold mt-8 tracking-tighter">
             Our <br/><span className="text-luxury text-emerald lowercase">legacy.</span>
@@ -63,7 +63,8 @@ export default function About() {
               </p>
             </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Interactive Timeline Carousel — Click + Swipe */}
@@ -75,15 +76,16 @@ export default function About() {
            </div>
            {/* Animated Year Display */}
            <AnimatePresence mode="wait">
-             <motion.div 
-                key={activeStep}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="text-7xl md:text-9xl lg:text-[10rem] font-syne font-black text-emerald/10 leading-none tracking-tighter select-none"
-             >
-                {steps[activeStep].year}
-             </motion.div>
+             <div className="text-7xl md:text-9xl lg:text-[10rem] font-syne font-black text-emerald/10 leading-none tracking-tighter select-none">
+               <motion.div 
+                  key={activeStep}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+               >
+                  {steps[activeStep].year}
+               </motion.div>
+             </div>
            </AnimatePresence>
         </div>
 
@@ -99,27 +101,30 @@ export default function About() {
             style={{ transform: `translateX(-${activeStep * (typeof window !== 'undefined' && window.innerWidth < 1024 ? 90 : 40)}vw)` }}
           >
             {steps.map((step, idx) => (
-              <motion.div 
+              <div 
                 key={idx}
-                onClick={() => goTo(idx)}
                 className={`flex-shrink-0 w-[85vw] lg:w-[35vw] mr-8 lg:mr-16 relative group transition-all duration-700 cursor-pointer ${activeStep === idx ? 'opacity-100 scale-100' : 'opacity-30 scale-95 hover:opacity-60'}`}
               >
-                <div className="relative glass-obsidian p-8 md:p-12 lg:p-20 rounded-[48px] md:rounded-[64px] lg:rounded-[100px] border border-white/5 space-y-8 lg:space-y-10 group-hover:border-emerald/40 transition-all duration-700 hover:translate-y-[-15px] shadow-[0_50px_100px_rgba(0,0,0,0.6)]">
-                  <div className="flex justify-between items-start">
-                    <div className="p-4 lg:p-6 rounded-[24px] lg:rounded-[32px] bg-obsidian border border-gold/10 w-fit group-hover:scale-110 group-hover:border-gold/40 transition-all duration-700">
-                      {React.cloneElement(step.icon as React.ReactElement, { size: 32 })}
+                <motion.div 
+                  onClick={() => goTo(idx)}
+                >
+                  <div className="relative glass-obsidian p-8 md:p-12 lg:p-20 rounded-[48px] md:rounded-[64px] lg:rounded-[100px] border border-white/5 space-y-8 lg:space-y-10 group-hover:border-emerald/40 transition-all duration-700 hover:translate-y-[-15px] shadow-[0_50px_100px_rgba(0,0,0,0.6)]">
+                    <div className="flex justify-between items-start">
+                      <div className="p-4 lg:p-6 rounded-[24px] lg:rounded-[32px] bg-obsidian border border-gold/10 w-fit group-hover:scale-110 group-hover:border-gold/40 transition-all duration-700">
+                        {React.cloneElement(step.icon as React.ReactElement<any>, { size: 32 })}
+                      </div>
+                      <span className="font-syne text-xl lg:text-4xl font-bold text-gold/30 group-hover:text-gold transition-colors duration-700">{step.year}</span>
                     </div>
-                    <span className="font-syne text-xl lg:text-4xl font-bold text-gold/30 group-hover:text-gold transition-colors duration-700">{step.year}</span>
+                    <div className="space-y-4 lg:space-y-6">
+                      <h3 className="font-syne text-2xl lg:text-5xl font-bold tracking-tight">{step.title}</h3>
+                      <p className="text-base lg:text-2xl text-gray-500 font-medium leading-relaxed group-hover:text-white transition-colors duration-700">{step.detail}</p>
+                    </div>
+                    <div className="pt-4 lg:pt-8 flex items-center space-x-6">
+                      <div className="w-16 h-px bg-emerald/20 group-hover:w-full group-hover:bg-emerald transition-all duration-1000" />
+                    </div>
                   </div>
-                  <div className="space-y-4 lg:space-y-6">
-                    <h3 className="font-syne text-2xl lg:text-5xl font-bold tracking-tight">{step.title}</h3>
-                    <p className="text-base lg:text-2xl text-gray-500 font-medium leading-relaxed group-hover:text-white transition-colors duration-700">{step.detail}</p>
-                  </div>
-                  <div className="pt-4 lg:pt-8 flex items-center space-x-6">
-                    <div className="w-16 h-px bg-emerald/20 group-hover:w-full group-hover:bg-emerald transition-all duration-1000" />
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -179,21 +184,23 @@ export default function About() {
             { label: "Elite Tech Stack", value: "Bio-Sync", icon: <ArrowRight className="text-emerald" size={32} /> },
             { label: "Global Presence", value: "45+", icon: <Users className="text-gold" size={32} /> }
            ].map((stat, idx) => (
-             <motion.div 
-               key={stat.label}
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-               className="glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[56px] border border-white/5 text-center flex flex-col items-center justify-center space-y-3 md:space-y-4 hover:border-gold/30 transition-all duration-700 group cursor-pointer"
-             >
-                <div className="group-hover:scale-110 transition-transform duration-500">
-                   {stat.icon}
-                </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-syne font-black text-emerald group-hover:text-white transition-colors tracking-tighter leading-none break-keep">
-                   {stat.value}
-                </div>
-                <div className="text-[9px] lg:text-[11px] uppercase font-black tracking-widest text-gray-500 group-hover:text-gold transition-colors">{stat.label}</div>
-             </motion.div>
+             <div className="glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[56px] border border-white/5 text-center flex flex-col items-center justify-center space-y-3 md:space-y-4 hover:border-gold/30 transition-all duration-700 group cursor-pointer">
+               <motion.div 
+                 key={stat.label}
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ delay: idx * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                 className="flex flex-col items-center justify-center space-y-3 md:space-y-4 w-full"
+               >
+                  <div className="group-hover:scale-110 transition-transform duration-500">
+                     {stat.icon}
+                  </div>
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-syne font-black text-emerald group-hover:text-white transition-colors tracking-tighter leading-none break-keep">
+                     {stat.value}
+                  </div>
+                  <div className="text-[9px] lg:text-[11px] uppercase font-black tracking-widest text-gray-500 group-hover:text-gold transition-colors">{stat.label}</div>
+               </motion.div>
+             </div>
            ))}
         </div>
 

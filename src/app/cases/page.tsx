@@ -41,14 +41,15 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
   };
 
   return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div className={className} style={{ transformStyle: "preserve-3d" }}>
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ rotateX, rotateY }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
 
@@ -143,12 +144,12 @@ export default function Results() {
       {/* Background Precision Grid */}
       <ThreePrecisionGrid />
 
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="container-premium text-center lg:text-left relative z-10"
-      >
+      <div className="container-premium text-center lg:text-left relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        >
         <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60">The Clinical Archive</span>
         <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter drop-shadow-2xl">
           Master <br/><span className="text-luxury text-emerald lowercase italic">outcomes.</span>
@@ -187,12 +188,12 @@ export default function Results() {
                      </p>
                   </div>
                </TiltCard>
-               <motion.div 
-                 initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                 className={`lg:col-span-2 space-y-8 md:space-y-12 lg:space-y-16 text-center lg:text-left ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}
-               >
+                 <div className={`lg:col-span-2 space-y-8 md:space-y-12 lg:space-y-16 text-center lg:text-left ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+                   <motion.div 
+                     initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                   >
                   <div className="flex items-center justify-center lg:justify-start space-x-4 md:space-x-6">
                     <div className="w-8 md:w-12 h-px bg-emerald/20" />
                     <span className="font-syne font-black text-[8px] lg:text-xs uppercase tracking-[0.4em] lg:tracking-[0.6em] text-emerald drop-shadow-[0_0_10px_rgba(46,139,87,0.3)]">Clinical Insight</span>
@@ -206,11 +207,13 @@ export default function Results() {
                         <PremiumIcon color="#D4AF37" />
                      </div>
                   </Link>
-               </motion.div>
+                   </motion.div>
+                 </div>
             </div>
           ))}
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/* Experimental Trust Signals */}
       <section className="section-padding bg-obsidian border-y border-white/5 relative overflow-hidden mt-32 md:mt-64">

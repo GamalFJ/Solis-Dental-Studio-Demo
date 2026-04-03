@@ -33,12 +33,12 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-emerald/10 rounded-full blur-[180px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
 
         <div className="container-premium grid lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center lg:text-left"
-          >
+          <div className="text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
             <span className="text-emerald font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs drop-shadow-[0_0_10px_rgba(46,139,87,0.5)]">{t('hero_eyebrow')}</span>
             <h1 className="font-syne text-hero font-bold mt-8 tracking-tighter">
               Dental <br className="hidden lg:block" /><span className="text-luxury text-gold italic">{t('hero_title')}</span>
@@ -56,15 +56,16 @@ export default function Home() {
                 <div className="w-16 h-px bg-gold/20 group-hover:w-32 group-hover:bg-gold transition-all duration-1000 ease-[0.16,1,0.3,1]"></div>
               </Link>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Dynamic Image Frame */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[50vh] lg:h-[85vh] rounded-[48px] lg:rounded-[80px] overflow-hidden border border-white/5 shadow-[0_120px_100px_rgba(0,0,0,0.8)] group perspective-1000"
-          >
+          <div className="relative h-[50vh] lg:h-[85vh] rounded-[48px] lg:rounded-[80px] overflow-hidden border border-white/5 shadow-[0_120px_100px_rgba(0,0,0,0.8)] group perspective-1000">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            >
             <Image
               src="/assets/hero.png"
               alt="Clinical Luxury"
@@ -73,18 +74,20 @@ export default function Home() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-90" />
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-              className="absolute bottom-6 left-6 right-6 lg:bottom-16 lg:left-12 glass-obsidian p-8 lg:p-16 rounded-[32px] lg:rounded-[48px] max-w-sm border border-emerald/10 shadow-2xl backdrop-blur-3xl"
-            >
+            <div className="absolute bottom-6 left-6 right-6 lg:bottom-16 lg:left-12 glass-obsidian p-8 lg:p-16 rounded-[32px] lg:rounded-[48px] max-w-sm border border-emerald/10 shadow-2xl backdrop-blur-3xl">
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+              >
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-8 lg:w-12 h-0.5 bg-emerald-light/40" />
                 <h3 className="font-syne text-xl lg:text-3xl font-bold text-emerald-light drop-shadow-[0_0_15px_rgba(209,250,229,0.3)]">{t('hero_hub_label')}</h3>
               </div>
               <p className="text-gray-400 mt-2 lg:mt-4 leading-relaxed font-medium italic text-sm lg:text-lg text-balance bg-clip-text">{t('hero_hub_text')}</p>
+              </motion.div>
+            </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -98,15 +101,16 @@ export default function Home() {
         <div className="container-premium flex flex-col lg:grid lg:grid-cols-2 gap-24 lg:gap-32 items-center relative z-10">
 
           {/* Clinical Before/After Slider */}
-          <motion.div
-            whileInView={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="order-2 lg:order-1 relative w-full lg:max-w-xl mx-auto"
-          >
+          <div className="order-2 lg:order-1 relative w-full lg:max-w-xl mx-auto">
+            <motion.div
+              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            >
             <div className="absolute -inset-10 bg-emerald/5 blur-[150px] rounded-full opacity-50 pointer-events-none" />
             <ClinicalSlider />
-          </motion.div>
+            </motion.div>
+          </div>
 
           <div className="space-y-16 lg:space-y-24 order-1 lg:order-2 text-center lg:text-left">
             <motion.div
@@ -125,13 +129,13 @@ export default function Home() {
                 { id: "01", title: "Robotic Implants", detail: "Minimally invasive perfection with zero error tolerance.", icon: <PremiumIcon color="#D4AF37" /> },
                 { id: "02", title: "Smile Sculpting", detail: "Using high-cadence AI to map facial symmetry.", icon: <PremiumIcon color="#2E8B57" /> }
               ].map((service, idx) => (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="group relative cursor-pointer"
-                >
+                <div className="group relative cursor-pointer">
+                  <motion.div
+                    key={service.id}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  >
                   <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-12">
                     <span className="text-6xl lg:text-8xl font-syne font-black text-white/5 group-hover:text-gold/20 transition-all duration-1000 leading-none">{service.id}</span>
                     <div className="flex-1">
@@ -144,7 +148,8 @@ export default function Home() {
                       <p className="mt-4 lg:mt-8 text-base lg:text-xl text-gray-500 max-w-lg group-hover:text-cloud transition-all duration-1000 leading-relaxed font-medium">{service.detail}</p>
                     </div>
                   </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>

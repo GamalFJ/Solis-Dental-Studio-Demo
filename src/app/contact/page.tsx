@@ -9,12 +9,12 @@ export default function Contact() {
       <div className="absolute top-0 right-0 w-full h-[60vh] bg-gradient-to-b from-gold/5 via-obsidian to-transparent opacity-30"></div>
       
       <div className="container-premium flex flex-col lg:grid lg:grid-cols-2 gap-16 md:gap-24 lg:gap-32 relative z-10 mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center lg:text-left"
-        >
+        <div className="text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          >
           <span className="text-emerald font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs">Direct Digital Inquiry</span>
           <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter italic">
             Connect <br/><span className="text-gold not-italic">Elite.</span>
@@ -43,14 +43,15 @@ export default function Contact() {
                 </div>
              </div>
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="relative glass-obsidian p-8 md:p-12 lg:p-20 rounded-[40px] md:rounded-[64px] lg:rounded-[100px] border border-gold/10 shadow-[0_100px_80px_rgba(0,0,0,0.6)]"
-        >
+        <div className="relative glass-obsidian p-8 md:p-12 lg:p-20 rounded-[40px] md:rounded-[64px] lg:rounded-[100px] border border-gold/10 shadow-[0_100px_80px_rgba(0,0,0,0.6)]">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
            <h3 className="font-syne text-3xl md:text-4xl lg:text-6xl font-bold mb-10 md:mb-16 text-emerald flex items-center justify-center lg:justify-start space-x-6">
               <MessageSquare className="text-gold w-8 h-8 lg:w-12 lg:h-12" />
               <span>Digital Intake</span>
@@ -85,7 +86,8 @@ export default function Contact() {
                 </button>
               </div>
            </form>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
