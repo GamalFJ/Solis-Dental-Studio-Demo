@@ -16,13 +16,13 @@ export default function Booking() {
       {/* Background Precision Grid */}
       <ThreePrecisionGrid />
 
-      <div className="container-premium grid lg:grid-cols-5 gap-16 md:gap-24 items-start relative z-10">
+      <div className="container-premium grid lg:grid-cols-5 gap-16 md:gap-24 items-start relative z-10 py-24 md:py-32 lg:py-48">
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-2 lg:sticky lg:top-56 lg:h-min text-center lg:text-left order-2 lg:order-1"
         >
-        <div className="lg:col-span-2 lg:sticky lg:top-56 lg:h-min text-center lg:text-left">
           <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60 italic font-syne">The Digital Portal</span>
           <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter shadow-2xl">
             Secure <br/><span className="text-luxury text-emerald lowercase italic">the slot.</span>
@@ -55,17 +55,22 @@ export default function Booking() {
              </div>
              <p className="text-gray-400 text-sm font-medium leading-relaxed italic">Your clinical data and slot selection are secured by the Solis Advanced Protocol.</p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-3">
-          <div className="relative rounded-[40px] md:rounded-[72px] lg:rounded-[100px] overflow-hidden border border-white/5 shadow-[0_100px_80px_rgba(0,0,0,0.8)] bg-obsidian/80 backdrop-blur-2xl p-6 md:p-8 lg:p-12 min-h-[600px] md:min-h-[850px] group">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-3 order-1 lg:order-2"
+        >
+          <div className="relative rounded-[40px] md:rounded-[72px] lg:rounded-[100px] overflow-hidden border border-white/5 shadow-[0_100px_80px_rgba(0,0,0,0.8)] bg-obsidian/80 backdrop-blur-2xl p-6 md:p-8 lg:p-12 min-h-[600px] md:min-h-[900px] group">
             {/* Cinematic Overlay */}
             <div className="absolute inset-0 pointer-events-none border-inset border-[20px] md:border-[40px] border-obsidian z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
             
             {/* Cal.com Stylized Embed */}
             <iframe 
               src="https://cal.com/purple-cove-labs/20-min-cafe-virtual?theme=dark" 
-              className="w-full h-[600px] md:h-[800px] opacity-100 grayscale-[0.5] hover:grayscale-0 transition-all duration-[2s] rounded-[24px] md:rounded-[48px] lg:rounded-[64px]"
+              className="w-full h-[600px] md:h-[850px] opacity-100 grayscale-[0.2] hover:grayscale-0 transition-all duration-[2s] rounded-[24px] md:rounded-[48px] lg:rounded-[64px]"
               style={{ border: 'none' }}
               title="Solis Booking Portal"
             />
@@ -73,7 +78,6 @@ export default function Booking() {
             {/* Premium Grain Frame */}
             <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-[0.03] bg-[url('/assets/noise.png')]" />
           </div>
-        </div>
         </motion.div>
       </div>
     </div>
