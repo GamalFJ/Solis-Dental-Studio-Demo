@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   description: "Designed & Developed by Purple Cove Labs",
 };
 
+export const viewport = {
+  themeColor: '#0D0D0D',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 import { LanguageProvider } from "../context/LanguageContext";
 
 export default function RootLayout({

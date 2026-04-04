@@ -27,7 +27,8 @@ export default function Banner() {
     <motion.div 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center overflow-hidden"
+      className="fixed top-0 w-full z-[150] bg-emerald-gold h-8 flex items-center overflow-hidden pt-[env(safe-area-inset-top)]"
+      style={{ height: 'calc(2rem + env(safe-area-inset-top))' }}
       suppressHydrationWarning
     >
       <div className="flex w-full">

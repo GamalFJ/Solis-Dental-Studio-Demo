@@ -52,7 +52,7 @@ export function DynamicNavbar() {
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -120 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-8 left-0 w-full z-[100] px-6 py-4"
+      className="fixed top-[calc(2rem+env(safe-area-inset-top))] left-0 w-full z-[100] px-6 py-4"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between glass-obsidian p-5 rounded-[32px] border border-white/5 backdrop-blur-[40px] shadow-2xl">
         <Link href="/" className="flex items-center space-x-7 group px-4">
