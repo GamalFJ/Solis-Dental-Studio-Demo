@@ -58,6 +58,7 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
    A hover-driven wipe that simulates a before/after 
    without needing two separate images.                */
 function CinematicRevealCard({ image, title }: { image: string; title: string }) {
+  const { t } = useLanguage();
   const [hoverPct, setHoverPct] = useState(50);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
