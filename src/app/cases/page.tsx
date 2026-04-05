@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "../../context/LanguageContext";
 import ThreePrecisionGrid from "@/components/three/ThreePrecisionGrid";
 
 const PremiumIcon = ({ color }: { color: string }) => (
@@ -102,38 +103,39 @@ function CinematicRevealCard({ image, title }: { image: string; title: string })
       </div>
 
       {/* Labels */}
-      <div className="absolute bottom-6 left-6 px-4 py-2 bg-[#0D0D0D]/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-bold border border-white/10 opacity-70">
-        Scientific Baseline
+      <div className="absolute bottom-6 left-6 px-4 py-2 bg-[#0D0D0D]/80 backdrop-blur-md rounded-full text-[8px] lg:text-[10px] uppercase tracking-widest font-bold border border-white/10 opacity-70">
+        {t('cases_baseline')}
       </div>
-      <div className="absolute bottom-6 right-6 px-4 py-2 bg-[#135D43]/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-bold border border-white/10 opacity-70">
-        Solis Outcome
+      <div className="absolute bottom-6 right-6 px-4 py-2 bg-[#135D43]/80 backdrop-blur-md rounded-full text-[8px] lg:text-[10px] uppercase tracking-widest font-bold border border-white/10 opacity-70">
+        {t('cases_outcome')}
       </div>
     </div>
   );
 }
 
 export default function Results() {
+  const { t } = useLanguage();
   const cases = [
     { 
-      title: "Full Oral Design", 
+      title: t('case1_title'), 
       location: "Piantini Studio", 
-      tag: "Porcelain Veneers",
-      insight: "Achieving symmetrical perfection through 3D mapping and biological patient data analysis.",
+      tag: t('case1_tag'),
+      insight: t('case1_insight'),
       isReveal: true,
       image: "/assets/hero.png"
     },
     { 
-      title: "Digital Orthodontics", 
+      title: t('case2_title'), 
       location: "Santo Domingo Hub", 
-      tag: "Invisalign Elite",
-      insight: "Accelerated alignment featuring AI-monitored weekly progression scans.",
+      tag: t('case2_tag'),
+      insight: t('case2_insight'),
       image: "/assets/detail.png"
     },
     { 
-      title: "Bio-Implantology", 
+      title: t('case3_title'), 
       location: "Naco Flagship", 
-      tag: "Robotic Guided",
-      insight: "Zero-error implant placement using micron-precise robotic surgical assistance.",
+      tag: t('case3_tag'),
+      insight: t('case3_insight'),
       image: "/assets/abstract.png"
     }
   ];
@@ -150,12 +152,12 @@ export default function Results() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-        <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60">The Clinical Archive</span>
-        <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter drop-shadow-2xl">
-          Master <br/><span className="text-luxury text-emerald lowercase italic">outcomes.</span>
+        <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60">{t('cases_eyebrow')}</span>
+        <h1 className="font-syne text-5xl md:text-7xl lg:text-hero font-bold mt-6 tracking-tighter drop-shadow-2xl">
+          {t('cases_title')} <br/><span className="text-luxury text-emerald lowercase italic">{t('cases_title_span')}</span>
         </h1>
         <p className="mt-12 md:mt-16 text-xl md:text-2xl lg:text-4xl text-gray-400 max-w-4xl mx-auto lg:mx-0 leading-tight font-medium bg-clip-text text-balance">
-          Each case is a testament to the intersection of digital biology and aesthetic desire, crafted for the <span className="text-white italic">elite aesthetic.</span>
+          {t('cases_sub')}
         </p>
 
         <div className="mt-24 md:mt-32 lg:mt-[24rem] space-y-32 md:space-y-48 lg:space-y-[45rem]">
@@ -180,7 +182,7 @@ export default function Results() {
                     </div>
                   )}
                   <div style={{ transform: "translateZ(100px)" }} className="absolute bottom-6 left-6 md:bottom-10 md:left-10 lg:bottom-16 lg:left-16 z-10 glass-obsidian p-6 md:p-10 lg:p-14 rounded-[32px] md:rounded-[56px] lg:rounded-[72px] border border-white/10 max-w-[280px] md:max-w-sm lg:max-w-md shadow-2xl group-hover:border-gold/40 transition-all duration-700 bg-obsidian/60 backdrop-blur-3xl">
-                     <span className="text-emerald font-bold tracking-[0.4em] lg:tracking-[0.5em] uppercase text-[8px] lg:text-xs opacity-60">Archive No.0{idx + 1}</span>
+                     <span className="text-emerald font-bold tracking-[0.4em] lg:tracking-[0.5em] uppercase text-[8px] lg:text-xs opacity-60">{t('cases_archive')}0{idx + 1}</span>
                      <h4 className="text-2xl md:text-4xl lg:text-6xl font-bold mt-4 lg:mt-6 tracking-tighter leading-[0.9] group-hover:text-gold transition-colors duration-500">{project.title}</h4>
                      <p className="mt-6 md:mt-10 text-gray-400 tracking-[0.1em] lg:tracking-[0.2em] text-[8px] lg:text-xs font-bold uppercase italic border-l border-emerald pl-4 md:pl-8 flex items-center space-x-2 md:space-x-4">
                         <span className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-gold animate-pulse" />
@@ -196,13 +198,13 @@ export default function Results() {
                    >
                   <div className="flex items-center justify-center lg:justify-start space-x-4 md:space-x-6">
                     <div className="w-8 md:w-12 h-px bg-emerald/20" />
-                    <span className="font-syne font-black text-[8px] lg:text-xs uppercase tracking-[0.4em] lg:tracking-[0.6em] text-emerald drop-shadow-[0_0_10px_rgba(46,139,87,0.3)]">Clinical Insight</span>
+                    <span className="font-syne font-black text-[8px] lg:text-xs uppercase tracking-[0.4em] lg:tracking-[0.6em] text-emerald drop-shadow-[0_0_10px_rgba(46,139,87,0.3)]">{t('cases_insight_label')}</span>
                   </div>
                   <p className="text-2xl md:text-3xl lg:text-[4rem] font-bold pb-12 md:pb-16 lg:pb-24 border-b border-white/5 leading-[1.05] tracking-tighter hover:text-white transition-all duration-1000 italic font-cormorant max-w-lg lg:ml-0 mx-auto">
                     &ldquo;{project.insight}&rdquo;
                   </p>
                   <Link href="/booking" className="flex items-center justify-center lg:justify-start space-x-6 md:space-x-8 group/link font-bold tracking-[0.2em] lg:tracking-[0.3em] text-[10px] uppercase text-gray-500 hover:text-gold transition-all duration-700">
-                     <span className="group-hover/link:translate-x-4 transition-transform duration-700">Full Protocol Analysis</span>
+                     <span className="group-hover/link:translate-x-4 transition-transform duration-700">{t('cases_analysis')}</span>
                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/5 flex items-center justify-center group-hover/link:bg-gold/5 group-hover/link:border-gold transition-all duration-700 group-hover/link:scale-110 shadow-2xl">
                         <PremiumIcon color="#D4AF37" />
                      </div>
@@ -219,9 +221,10 @@ export default function Results() {
       <section className="section-padding bg-obsidian border-y border-white/5 relative overflow-hidden mt-32 md:mt-64">
          <div className="absolute inset-0 bg-emerald/5 opacity-20 pointer-events-none" />
          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-48 opacity-20 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-[3s] ease-out px-6">
-            {['BIOTECH', 'PRECISION', 'AESTHETIC', 'ROBOTIC'].map(word => (
-              <span key={word} className="font-syne text-2xl md:text-4xl lg:text-8xl font-black tracking-[0.5em] lg:tracking-[1em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{word}</span>
-            ))}
+          <span className="font-syne text-xl md:text-3xl lg:text-8xl font-black tracking-[0.3em] lg:tracking-[1em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{t('trust_biotech')}</span>
+          <span className="font-syne text-xl md:text-3xl lg:text-8xl font-black tracking-[0.3em] lg:tracking-[1em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{t('trust_precision')}</span>
+          <span className="font-syne text-xl md:text-3xl lg:text-8xl font-black tracking-[0.3em] lg:tracking-[1em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{t('trust_aesthetic')}</span>
+          <span className="font-syne text-xl md:text-3xl lg:text-8xl font-black tracking-[0.3em] lg:tracking-[1em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/20 via-white to-white/20 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{t('trust_robotic')}</span>
          </div>
       </section>
     </div>

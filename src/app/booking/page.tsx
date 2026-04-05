@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import ThreePrecisionGrid from '@/components/three/ThreePrecisionGrid'
+import { useLanguage } from '../../context/LanguageContext'
 
 const PremiumIcon = ({ color }: { color: string }) => (
   <svg width="24" height="24" viewBox="0 0 32 32" fill="none" className="group-hover:scale-125 transition-transform duration-700">
@@ -10,6 +11,8 @@ const PremiumIcon = ({ color }: { color: string }) => (
 );
 
 export default function Booking() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-obsidian text-cloud relative overflow-hidden">
       
@@ -23,18 +26,18 @@ export default function Booking() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-2 lg:sticky lg:top-56 lg:h-min text-center lg:text-left order-2 lg:order-1"
         >
-          <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60 italic font-syne">The Digital Portal</span>
-          <h1 className="font-syne text-hero font-bold mt-6 tracking-tighter shadow-2xl">
-            Secure <br/><span className="text-luxury text-emerald lowercase italic">the slot.</span>
+          <span className="text-gold font-bold tracking-[0.5em] lg:tracking-[0.8em] uppercase text-[10px] lg:text-xs block mb-8 opacity-60 italic font-syne">{t('booking_eyebrow')}</span>
+          <h1 className="font-syne text-4xl md:text-6xl lg:text-hero font-bold mt-6 tracking-tighter shadow-2xl">
+            {t('booking_title')} <br/><span className="text-luxury text-emerald lowercase italic">{t('booking_title_span')}</span>
           </h1>
           <p className="mt-8 lg:mt-12 text-xl lg:text-3xl text-gray-400 leading-tight font-medium bg-clip-text text-balance max-w-xl mx-auto lg:mx-0">
-            Select high-speed availability for your virtual assessment or in-person 3D oral mapping.
+            {t('booking_sub')}
           </p>
           
           <div className="mt-16 space-y-12 hidden md:block">
             {[
-              { id: "01", title: "Select Availability", description: "Choose a cinematic time-slot.", status: "Active" },
-              { id: "02", title: "Assessment Logic", description: "Prepare your medical data.", status: "Pending" }
+              { id: "01", title: t('booking_step1_title'), description: t('booking_step1_desc'), status: "Active" },
+              { id: "02", title: t('booking_step2_title'), description: t('booking_step2_desc'), status: "Pending" }
             ].map((step, idx) => (
               <div key={idx} className={`flex items-center space-x-8 group ${step.status === 'Pending' ? 'opacity-30' : ''} justify-center lg:justify-start`}>
                  <div className={`w-16 h-16 rounded-[24px] border border-white/5 flex items-center justify-center font-syne font-bold text-2xl group-hover:border-gold transition-colors duration-700 bg-obsidian/40 backdrop-blur-3xl shadow-xl`}>
@@ -49,11 +52,11 @@ export default function Booking() {
           </div>
 
           <div className="mt-16 lg:mt-24 p-8 glass-obsidian rounded-[32px] md:rounded-[40px] border border-emerald/10 shadow-3xl bg-emerald/5 max-w-sm mx-auto lg:mx-0">
-             <div className="flex items-center space-x-6 mb-6">
+             <div className="flex items-center justify-center lg:justify-start space-x-6 mb-6">
                 <PremiumIcon color="#2E8B57" />
-                <span className="font-syne font-black text-[10px] uppercase tracking-[0.4em] text-emerald">Encryption Active</span>
+                <span className="font-syne font-black text-[10px] uppercase tracking-[0.4em] text-emerald">{t('booking_encryption')}</span>
              </div>
-             <p className="text-gray-400 text-sm font-medium leading-relaxed italic">Your clinical data and slot selection are secured by the Solis Advanced Protocol.</p>
+             <p className="text-gray-400 text-sm font-medium leading-relaxed italic">{t('booking_encryption_sub')}</p>
           </div>
         </motion.div>
 

@@ -28,10 +28,12 @@ Built on a modern, high-performance stack for absolute responsiveness and cinema
 ---
 
 ## **📂 Core Clinical Features**
+- **Persistent Global Localization**: Seamlessly switch between English and Dominican Spanish with `localStorage` preference persistence.
 - **Precision Grid Visualizer**: A 3D interactive grid representing our zero-error clinical tolerance.
-- **Clinical Before/After Slider**: High-fidelity visualization of patient outcomes.
-- **Interactive Timeline**: An animated, swipable journey through the Solis legacy (2021–2026).
-- **Responsive Dynamic Navbar**: A persistent, pill-based navigation system with vertical scroll signals.
+- **Cinematic Before/After Slider**: High-fidelity visualization of patient outcomes.
+- **Interactive Timeline**: An animated, swipable journey through the Solis legacy.
+- **Responsive Dynamic Navbar**: A persistent, pill-based navigation system with mobile-first hamburger menu functionality.
+- **Viewport-Optimized Typography**: Fluid font scaling providing a desktop-grade experience for mobile visitors.
 
 ---
 

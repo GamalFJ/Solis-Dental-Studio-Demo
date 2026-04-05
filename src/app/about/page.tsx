@@ -4,8 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, History, Award, Users, ShieldCheck, Microscope, Scan, Info, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React, { useRef, useState, useCallback } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
   const [activeStep, setActiveStep] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [dragStartX, setDragStartX] = useState(0);
@@ -57,17 +59,17 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-          <span className="text-gold font-bold tracking-[0.2em] md:tracking-[0.6em] uppercase text-[10px] lg:text-xs">The Obsidian Sanctuary</span>
-          <h1 className="font-syne text-hero-lg font-bold mt-8 tracking-tighter">
-            Our <br/><span className="text-luxury text-emerald lowercase">legacy.</span>
+          <span className="text-gold font-bold tracking-[0.2em] md:tracking-[0.6em] uppercase text-[10px] lg:text-xs">{t('about_eyebrow')}</span>
+          <h1 className="font-syne text-5xl md:text-7xl lg:text-[10rem] font-bold mt-8 tracking-tighter leading-[0.9]">
+            {t('about_title')} <br/><span className="text-luxury text-emerald lowercase">{t('about_title_span')}</span>
           </h1>
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-32 mt-16 md:mt-24 lg:mt-32">
             <p className="text-2xl md:text-3xl lg:text-5xl font-medium leading-[1.2] text-gray-300 ornament">
-               Engineering clinical excellence into a <span className="text-luxury text-gold">bespoke sensory experience.</span>
+               {t('about_intro')} <span className="text-luxury text-gold">{t('about_intro_span')}</span>
             </p>
             <div className="space-y-6 md:space-y-10">
               <p className="text-base md:text-lg lg:text-2xl text-gray-500 leading-relaxed font-bold">
-                 Founded in Piantini, Solis Dental Studio represents the intersection of biotechnology and high-art. We serve the most discerning residents of Santo Domingo and international patients seeking surgical perfection.
+                 {t('about_desc')}
               </p>
             </div>
           </div>
@@ -79,8 +81,8 @@ export default function About() {
       <section className="section-padding bg-obsidian-light/30 relative overflow-hidden">
         <div className="container-premium mb-16 md:mb-24 lg:mb-32 flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
            <div className="text-center md:text-left">
-              <span className="text-emerald font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs">The Technical Horizon</span>
-              <h2 className="font-syne text-5xl md:text-7xl lg:text-8xl font-bold mt-6 tracking-tighter italic text-gold leading-none">Projecting <br/><span className="text-white not-italic lowercase text-luxury">futures.</span></h2>
+               <span className="text-emerald font-bold tracking-[0.5em] uppercase text-[10px] lg:text-xs">{t('about_horizon')}</span>
+               <h2 className="font-syne text-4xl md:text-7xl lg:text-8xl font-bold mt-6 tracking-tighter italic text-gold leading-none">{t('about_future')} <br/><span className="text-white not-italic lowercase text-luxury">{t('about_future_span')}</span></h2>
            </div>
            {/* Animated Year Display */}
            <AnimatePresence mode="wait">
@@ -187,10 +189,10 @@ export default function About() {
       <section className="section-padding container-premium">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
            {[
-            { label: "Precision Rate", value: "99.9%", icon: <Award className="text-emerald" size={32} /> },
-            { label: "Years in Piantini", value: "5+", icon: <History className="text-gold" size={32} /> },
-            { label: "Elite Tech Stack", value: "Bio-Sync", icon: <ArrowRight className="text-emerald" size={32} /> },
-            { label: "Global Presence", value: "45+", icon: <Users className="text-gold" size={32} /> }
+            { label: t('stat_precision'), value: "99.9%", icon: <Award className="text-emerald" size={32} /> },
+            { label: t('stat_years'), value: "5+", icon: <History className="text-gold" size={32} /> },
+            { label: t('stat_tech'), value: "Bio-Sync", icon: <ArrowRight className="text-emerald" size={32} /> },
+            { label: t('stat_presence'), value: "45+", icon: <Users className="text-gold" size={32} /> }
            ].map((stat, idx) => (
              <div className="glass-obsidian p-8 md:p-10 lg:p-12 rounded-[32px] md:rounded-[48px] lg:rounded-[56px] border border-white/5 text-center flex flex-col items-center justify-center space-y-3 md:space-y-4 hover:border-gold/30 transition-all duration-700 group cursor-pointer">
                <motion.div 
@@ -216,9 +218,9 @@ export default function About() {
             <img src="/assets/hero.png" alt="Legacy" className="absolute inset-0 w-full h-full object-cover grayscale opacity-20 group-hover:scale-105 transition-all duration-[8s]" />
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 md:p-12 space-y-8 lg:space-y-12 z-10">
-               <h3 className="font-syne text-4xl md:text-6xl lg:text-[7rem] font-bold max-w-5xl tracking-tighter leading-[0.85]">Enter the <br/><span className="text-luxury text-gold lowercase">solis legacy.</span></h3>
+               <h3 className="font-syne text-4xl md:text-6xl lg:text-[7rem] font-bold max-w-5xl tracking-tighter leading-[0.85]">{t('about_enter')} <br/><span className="text-luxury text-gold lowercase">{t('about_enter_span')}</span></h3>
                <Link href="/booking" className="bg-emerald px-12 md:px-20 py-6 md:py-8 rounded-[24px] md:rounded-[32px] font-bold text-xl md:text-2xl hover:bg-emerald-light transition-all shadow-[0_40px_100px_rgba(46,139,87,0.4)] hover:scale-105 active:scale-95 duration-500">
-                  Reserve My Timeline
+                  {t('about_cta')}
                </Link>
             </div>
         </section>

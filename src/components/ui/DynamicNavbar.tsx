@@ -12,10 +12,11 @@ const PremiumSparkle = () => (
 
 const PremiumMenu = () => (
   <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-    <path d="M4 12 L28 12 M4 20 L28 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
     <circle cx="16" cy="16" r="14" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" className="opacity-20 translate-z-[10px]" />
   </svg>
 );
+
 
 const PremiumX = () => (
   <svg width="24" height="24" viewBox="0 0 32 32" fill="none">

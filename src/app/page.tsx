@@ -118,20 +118,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-gold font-bold tracking-[0.5em] uppercase text-[10px] drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]">Biological Foundation</span>
-              <h2 className="font-syne text-5xl md:text-7xl lg:text-[7rem] font-bold leading-[0.9] tracking-tighter mt-8">
-                Digital DNA. <br /><span className="text-luxury text-emerald lowercase italic">scientific art.</span>
+              <span className="text-gold font-bold tracking-[0.5em] uppercase text-[10px] drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]">{t('stats_eyebrow')}</span>
+              <h2 className="font-syne text-4xl md:text-7xl lg:text-[7rem] font-bold leading-[0.9] tracking-tighter mt-8">
+                {t('stats_dna_title')} <br /><span className="text-luxury text-emerald lowercase italic">{t('stats_dna_sub')}</span>
               </h2>
             </motion.div>
 
             <div className="space-y-12 lg:space-y-20">
               {[
-                { id: "01", title: "Robotic Implants", detail: "Minimally invasive perfection with zero error tolerance.", icon: <PremiumIcon color="#D4AF37" /> },
-                { id: "02", title: "Smile Sculpting", detail: "Using high-cadence AI to map facial symmetry.", icon: <PremiumIcon color="#2E8B57" /> }
+                { id: "01", title: t('stats_implant_title'), detail: t('stats_implant_detail'), icon: <PremiumIcon color="#D4AF37" /> },
+                { id: "02", title: t('stats_sculpt_title'), detail: t('stats_sculpt_detail'), icon: <PremiumIcon color="#2E8B57" /> }
               ].map((service, idx) => (
-                <div className="group relative cursor-pointer">
+                <div key={service.id} className="group relative cursor-pointer">
                   <motion.div
-                    key={service.id}
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -159,10 +158,11 @@ export default function Home() {
       {/* Experimental Trust Signals */}
       <section className="py-24 md:py-48 bg-obsidian border-y border-white/5 relative overflow-hidden">
         <div className="absolute inset-0 bg-emerald/5 opacity-20 pointer-events-none" />
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-20 lg:gap-32 opacity-20 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-[2s] ease-out px-6">
-          {['BIOTECH', 'PRECISION', 'AESTHETIC', 'ROBOTIC'].map(word => (
-            <span key={word} className="font-syne text-2xl md:text-4xl lg:text-5xl font-black tracking-[0.5em] lg:tracking-[0.8em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white to-white/40">{word}</span>
-          ))}
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-20 lg:gap-32 opacity-20 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-[2s] ease-out px-6">
+          <span className="font-syne text-xl md:text-4xl lg:text-5xl font-black tracking-[0.4em] lg:tracking-[0.8em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white to-white/40">{t('trust_biotech')}</span>
+          <span className="font-syne text-xl md:text-4xl lg:text-5xl font-black tracking-[0.4em] lg:tracking-[0.8em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white to-white/40">{t('trust_precision')}</span>
+          <span className="font-syne text-xl md:text-4xl lg:text-5xl font-black tracking-[0.4em] lg:tracking-[0.8em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white to-white/40">{t('trust_aesthetic')}</span>
+          <span className="font-syne text-xl md:text-4xl lg:text-5xl font-black tracking-[0.4em] lg:tracking-[0.8em] italic text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white to-white/40">{t('trust_robotic')}</span>
         </div>
       </section>
 
